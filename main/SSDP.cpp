@@ -747,6 +747,10 @@ void SSDPClass::schema(Print &client) {
   IPAddress ip = this->localIP();
   uint8_t devCount = 0;
 
+  for(uint8_t i = 0; i < this->m_cdeviceTypes; i++) {
+    if(strlen(this->deviceTypes[i].deviceType) > 0) devCount++;
+  }
+
   char schema_template[strlen_P(_ssdp_schema_template)+1];
   char device_template[strlen_P(_ssdp_device_schema_template)+1];
   strcpy_P(schema_template, _ssdp_schema_template);
