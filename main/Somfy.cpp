@@ -1635,7 +1635,7 @@ void SomfyGroup::publishState() {
 void SomfyGroup::publish() {
   if(mqtt.connected()) {
     this->publish("groupId", this->groupId, true);
-    //this->publish("name", this->name, true);
+    this->publish("name", this->name, true);
     this->publish("remoteAddress", this->getRemoteAddress(), true);
     this->publish("groupType", static_cast<uint8_t>(this->groupType), true);
     this->publish("flags", this->flags, true);
